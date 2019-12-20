@@ -11,9 +11,19 @@ public class Metoder {
 	
 	
 	
-	public void show() {
-		System.out.println(todo);
+	public void Show() {
+		for (int i = 0; i < todo.size(); i++) {
+			System.out.println(todo.get(i).toString());
 		
+	}}
+	
+//	public void Add() {
+//		if (s.substring(0, 8).equals("todo.add")) { // 7 steg
+//			 todo.add(s.substring(9));
+//	}
+	
+	public void Remove() {
+	
 	}
 	
 }
