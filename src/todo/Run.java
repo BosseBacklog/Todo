@@ -34,7 +34,7 @@ public class Run {
 				continue;
 			}
 			if (s.substring(0, 13).equals("todo.complete")) {
-				b = Integer.parseInt(s.substring(15));		
+				b = Integer.parseInt(String.valueOf(s.charAt(14)));
 				m.todo.remove(b);
 					
 				}
