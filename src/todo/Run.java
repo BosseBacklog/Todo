@@ -12,7 +12,7 @@ public class Run {
 	public void Start() {
 
 		while (true) {
-
+			//Lägg till startswith 
 			s = scan.nextLine();
 			if(s.length() <= 0) {
 				System.err.println("Invalid input");
@@ -36,9 +36,9 @@ public class Run {
 			if (s.substring(0, 13).equals("todo.complete")) {
 				b = Integer.parseInt(String.valueOf(s.charAt(14)));
 				m.todo.remove(b);
-					
+				continue;
 				}
-				
+//				s.startsWith(prefix)
 			}
 		System.out.println("Hejdå");
 		System.exit(0);	
