@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Attgöra {
 
 	public static void main(String[] args) {
-		Run r = new Run();
-		r.Start();
+		Metoder m =  new Metoder();
+		m.Start();
 	}
 
 }
