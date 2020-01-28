@@ -1,5 +1,8 @@
 	package todo;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,12 +12,13 @@ public class Metoder {
 	List<String> doing = new ArrayList<>();
 	List<String> done = new ArrayList<>();
 	
+	
 	String s;
-	Metoder m = new Metoder();
+
 	int b = 0;
 	Scanner scan = new Scanner(System.in);
 
-	public void Start() {
+	public void Start() throws IOException {
 
 		while (true) {
 			s = scan.nextLine();
@@ -27,29 +31,33 @@ public class Metoder {
 			}
 			if (s.startsWith("todo.complete")) {
 				b = Integer.parseInt(String.valueOf(s.charAt(14)));
-				m.done.add(m.todo.get(b).toString());
-				m.todo.remove(b);
+				done.add(todo.get(b).toString());
+				todo.remove(b);
 				continue;
 
 			}
 			if (s.startsWith("done.show")) {
-				for (int i = 0; i < m.done.size(); i++) {
-					System.out.println(m.done.get(i).toString());
+				for (int i = 0; i < done.size(); i++) {
+					System.out.println(done.get(i).toString());
 					continue;
 				}
 			}
 			if (s.startsWith("todo.remove")) {
 				b = Integer.parseInt(String.valueOf(s.charAt(14)));
-				m.todo.remove(b);
+				todo.remove(b);
+				continue;
+			}
+			if (s.startsWith("save")) {
+				FilPrint();
 				continue;
 			}
 			if (s.startsWith("todo.add")) { // 7 steg
-				m.todo.add(s.substring(9));
+				todo.add(s.substring(9));
 				continue;
 			}
 
 			if (s.equals("todo.show")) {
-				m.Show();
+				Show();
 				continue;
 			}
 		}
@@ -63,8 +71,21 @@ public class Metoder {
 		for (int i = 0; i < todo.size(); i++) {
 			System.out.println(todo.get(i).toString());
 		
-	}}
+	}
+}
 	
+	public void FilPrint() throws IOException {
+		String bap =  "HEjsamsAN";
+		BufferedWriter out = new BufferedWriter(new FileWriter("todo.txt"));
+		for (int i = 0; i < todo.size(); i++) {
+			out.write(todo.get(i).toString());
+			out.newLine();
+//			System.out.println(todo.get(i).toString());	
+	}
+//		out.write(bap);
+
+		out.close();
+	}
 //	public void Add() {
 //		if (s.substring(0, 8).equals("todo.add")) { // 7 steg
 //			 todo.add(s.substring(9));
