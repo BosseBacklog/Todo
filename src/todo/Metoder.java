@@ -23,8 +23,8 @@ public class Metoder {
 
 	int b = 0;
 	Scanner scan = new Scanner(System.in);
-//	Scanner textfil = new Scanner
 	
+	// 
 	public void Start() throws IOException {
 		textScan();
 		while (true) {
